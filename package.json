@@ -1,7 +1,7 @@
 {
   "name": "acquireflow",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000A\u0000c\u0000q\u0000u\u0000i\u0000r\u0000e\u0000F\u0000l\u0000o\u0000w\u0000\r\u0000 \u0000",
+  "description": "AcquireFlow - Sistema de Gestão de Aquisições",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,10 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write src/",
-    "format:check": "prettier --check src/"
+    "format:check": "prettier --check src/",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "repository": {
     "type": "git",
@@ -25,13 +28,16 @@
   },
   "homepage": "https://github.com/GuilhermeMarques18/AcquireFlow#readme",
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
     "express": "^5.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
