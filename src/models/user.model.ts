@@ -1,5 +1,6 @@
 import { pgTable, serial, varchar, timestamp } from "drizzle-orm/pg-core";
-import type { CookieOptions } from "express";
+import type { CookieOptions, Response } from "express";
+
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 200 }).notNull(),
@@ -9,6 +10,7 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updated_at: timestamp("updated_at").notNull().defaultNow(),
 });
+
 export const cookies = {
   getOptions: (): CookieOptions => ({
     httpOnly: true,
@@ -17,10 +19,10 @@ export const cookies = {
     maxAge: 15 * 60 * 1000,
   }),
 
-  set: (res, name, value, options = {}) => {
+  set: (res: Response, name: string, value: string, options = {}) => {
     res.cookie(name, value, { ...cookies.getOptions(), ...options });
   },
-  clear: (res, name, options = {}) => {
+  clear: (res: Response, name: string, options = {}) => {
     res.clearCookie(name, { ...cookies.getOptions(), ...options });
   },
 };
