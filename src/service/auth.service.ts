@@ -13,6 +13,15 @@ export const hashPassword = async (password: string): Promise<string> => {
   }
 };
 
+export const comparePassword = async (providedPassword: string, hashedPassword: string): Promise<boolean> => {
+  try {
+    return await bcrypt.compare(providedPassword, hashedPassword);
+  } catch (e) {
+    logger.error("Error comparing passwords: ", e);
+    throw new Error("Error comparing passwords");
+  }
+};
+
 export const createUser = async ({ name, email, password, role = "user" }: { name: string; email: string; password: string; role?: string }): Promise<any> => {
   try {
     const existingUser = await db.select().from(users).where(eq(users.email, email)).limit(1).execute();
@@ -33,5 +42,37 @@ export const createUser = async ({ name, email, password, role = "user" }: { nam
   } catch (e) {
     logger.error("Error creating user: ", e);
     throw new Error("Error creating user");
+  }
+};
+
+export const authenticateUser = async (email: string, password: string): Promise<any> => {
+  try {
+    const user = await db.select().from(users).where(eq(users.email, email)).limit(1).execute();
+
+    if (!user || user.length === 0) {
+      logger.warn(`Login attempt for non-existent user: ${email}`);
+      throw new Error("User not found");
+    }
+
+    const foundUser = user[0]!;
+
+    const isPasswordValid = await comparePassword(password, foundUser.password);
+
+    if (!isPasswordValid) {
+      logger.warn(`Failed login attempt for user: ${email}`);
+      throw new Error("Invalid password");
+    }
+
+    logger.info(`User ${email} authenticated successfully`);
+    return {
+      id: foundUser.id,
+      name: foundUser.name,
+      email: foundUser.email,
+      role: foundUser.role,
+      createdAt: foundUser.createdAt,
+    };
+  } catch (e) {
+    logger.error("Error authenticating user: ", e);
+    throw e;
   }
 };
