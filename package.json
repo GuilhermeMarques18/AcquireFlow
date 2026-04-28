@@ -38,6 +38,8 @@
   },
   "homepage": "https://github.com/GuilhermeMarques18/AcquireFlow#readme",
   "dependencies": {
+    "@arcjet/inspect": "^1.4.0",
+    "@arcjet/node": "^1.4.0",
     "@neondatabase/serverless": "^1.1.0",
     "@types/bcrypt": "^6.0.0",
     "bcrypt": "^6.0.0",
