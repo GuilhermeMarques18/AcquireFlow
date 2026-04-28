@@ -6,7 +6,11 @@ import { createUser, authenticateUser } from "#service/auth.service";
 import { jwtToken } from "#utils/jwt";
 import { cookies } from "#utils/cookies";
 
-export const signup = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+export const signup = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response | void> => {
   try {
     const validationResult = signUpSchema.safeParse(req.body);
 
@@ -42,7 +46,11 @@ export const signup = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
-export const signin = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+export const signin = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response | void> => {
   try {
     const validationResult = signInSchema.safeParse(req.body);
 
@@ -82,7 +90,11 @@ export const signin = async (req: Request, res: Response, next: NextFunction): P
   }
 };
 
-export const signout = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+export const signout = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<Response | void> => {
   try {
     cookies.clear(res, "token");
 

@@ -13,7 +13,10 @@ export const hashPassword = async (password: string): Promise<string> => {
   }
 };
 
-export const comparePassword = async (providedPassword: string, hashedPassword: string): Promise<boolean> => {
+export const comparePassword = async (
+  providedPassword: string,
+  hashedPassword: string
+): Promise<boolean> => {
   try {
     return await bcrypt.compare(providedPassword, hashedPassword);
   } catch (e) {
@@ -22,9 +25,24 @@ export const comparePassword = async (providedPassword: string, hashedPassword: 
   }
 };
 
-export const createUser = async ({ name, email, password, role = "user" }: { name: string; email: string; password: string; role?: string }): Promise<any> => {
+export const createUser = async ({
+  name,
+  email,
+  password,
+  role = "user",
+}: {
+  name: string;
+  email: string;
+  password: string;
+  role?: string;
+}): Promise<any> => {
   try {
-    const existingUser = await db.select().from(users).where(eq(users.email, email)).limit(1).execute();
+    const existingUser = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email))
+      .limit(1)
+      .execute();
 
     if (existingUser.length > 0) throw new Error("User already exists");
 
@@ -33,7 +51,13 @@ export const createUser = async ({ name, email, password, role = "user" }: { nam
     const newUser = await db
       .insert(users)
       .values({ name, email, password: password_hash, role })
-      .returning({ id: users.id, name: users.name, email: users.email, role: users.role, createdAt: users.createdAt });
+      .returning({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        role: users.role,
+        createdAt: users.createdAt,
+      });
 
     if (!newUser || newUser.length === 0 || !newUser[0]) throw new Error("Failed to create user");
 
