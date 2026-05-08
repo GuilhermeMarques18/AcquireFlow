@@ -7,7 +7,7 @@
 **Version:** 1.0.0  
 **Language:** TypeScript  
 **Runtime:** Node.js  
-**Package Manager:** npm  
+**Package Manager:** npm
 
 ---
 
@@ -57,16 +57,19 @@ src/
 ## 🔧 Core Technologies & Dependencies
 
 ### Runtime & Framework
+
 - **Express.js (5.2.1)** - Web framework
 - **TypeScript (6.0.3)** - Type safety
 - **Node.js** - Runtime environment
 
 ### Database & ORM
+
 - **Drizzle ORM (0.45.2)** - Type-safe database ORM
 - **@neondatabase/serverless (1.1.0)** - PostgreSQL driver (Neon)
 - **PostgreSQL** - Primary database
 
 ### Authentication & Security
+
 - **jsonwebtoken (9.0.3)** - JWT token generation
 - **bcrypt (6.0.0)** - Password hashing
 - **helmet (8.1.0)** - Security headers
@@ -74,12 +77,14 @@ src/
 - **cookie-parser (1.4.7)** - Cookie parsing
 
 ### Validation & Utilities
+
 - **zod (4.3.6)** - Runtime schema validation
 - **dotenv (17.4.2)** - Environment configuration
 - **morgan (1.10.1)** - HTTP request logging
 - **winston (3.19.0)** - Application logging
 
 ### Development Tools
+
 - **tsx (4.21.0)** - TypeScript execution & watch mode
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
@@ -123,9 +128,11 @@ src/
 ## 📊 Layer Descriptions
 
 ### 1. Routes Layer (`src/routes/`)
+
 **Responsibility:** Request routing and HTTP method mapping
 
 **Files:**
+
 - `auth.routes.ts` - Defines:
   - `POST /api/auth/sign-up` → signup controller
   - `POST /api/auth/sign-in` → placeholder
@@ -136,9 +143,11 @@ src/
 ---
 
 ### 2. Controller Layer (`src/controllers/`)
+
 **Responsibility:** Handle HTTP requests/responses, request validation
 
 **Files:**
+
 - `auth.controller.ts` - Exports `signup()`
   - Validates request payload with Zod
   - Calls service layer for business logic
@@ -149,14 +158,17 @@ src/
 ---
 
 ### 3. Service Layer (`src/service/`)
+
 **Responsibility:** Core business logic, database operations
 
 **Files:**
+
 - `auth.service.ts` - Exports:
   - `hashPassword()` - Bcrypt password hashing (salt rounds: 10)
   - `createUser()` - User creation with duplicate email prevention
 
 **Database Operations:**
+
 - Query existing users by email
 - Insert new user records
 - Return created user data
@@ -164,9 +176,11 @@ src/
 ---
 
 ### 4. Model Layer (`src/models/`)
+
 **Responsibility:** Database schema definitions and utilities
 
 **Files:**
+
 - `user.model.ts` - Defines:
   - `users` PostgreSQL table with Drizzle ORM schema
     - `id` (serial, primary key)
@@ -176,7 +190,6 @@ src/
     - `role` (varchar, default: "user")
     - `createdAt` (timestamp, auto-generated)
     - `updated_at` (timestamp, auto-generated)
-  
   - `cookies` utility object:
     - `getOptions()` - Security cookie configuration
     - `set()` - Set cookie on response
@@ -185,14 +198,15 @@ src/
 ---
 
 ### 5. Configuration Layer (`src/config/`)
+
 **Responsibility:** Application setup and initialization
 
 **Files:**
+
 - `database.ts` - Database connection
   - Neon PostgreSQL serverless driver
   - Drizzle ORM initialization
   - Environment variable validation
-  
 - `logger.ts` - Winston logger setup
   - Structured logging
   - File and console transports
@@ -200,17 +214,17 @@ src/
 ---
 
 ### 6. Utilities Layer (`src/utils/`)
+
 **Responsibility:** Reusable helper functions
 
 **Files:**
+
 - `jwt.ts` - JWT token management
   - Token signing with payload
   - Token verification and validation
-  
 - `cookies.ts` - Cookie handling utilities
   - Cookie creation with security options
   - Cookie deletion
-  
 - `format.ts` - Error formatting
   - Zod validation error formatting
   - Standardized error responses
@@ -218,9 +232,11 @@ src/
 ---
 
 ### 7. Validation Layer (`src/validations/`)
+
 **Responsibility:** Request schema validation
 
 **Files:**
+
 - `auth.validation.ts` - Zod schemas
   - `signUpSchema` - Validates sign-up request body
     - name (string, required)
@@ -233,11 +249,13 @@ src/
 ## 🌐 API Endpoints
 
 ### Base Endpoints
+
 - **GET** `/` - Health check ("Hello from AcquireFlow!")
 - **GET** `/health` - Detailed health status with uptime
 - **GET** `/api` - API status ("Acquisitions API is running!")
 
 ### Auth Endpoints
+
 - **POST** `/api/auth/sign-up` - User registration (IMPLEMENTED)
   - Request: `{ name, email, password, role? }`
   - Response: `{ message, user: { id, name, email, role } }`
@@ -251,6 +269,7 @@ src/
 ## 🔐 Security Features
 
 ### Implemented
+
 1. **Password Security**
    - Bcrypt hashing with 10 salt rounds
    - Never stored in plain text
@@ -281,6 +300,7 @@ src/
 ## 📦 Project Configuration
 
 ### Environment Variables Required
+
 ```
 DB_URL=postgresql://...  # Neon PostgreSQL connection string
 NODE_ENV=development     # development or production
@@ -288,6 +308,7 @@ PORT=3000               # Server port (optional)
 ```
 
 ### NPM Scripts
+
 ```bash
 npm run dev              # Development mode with hot reload
 npm run build           # Compile TypeScript to JavaScript
@@ -340,27 +361,32 @@ npm run db:studio       # Open Drizzle Studio
 ## 🎯 Key Design Patterns
 
 ### 1. **Separation of Concerns**
+
 - Routes handle HTTP routing only
 - Controllers handle request/response
 - Services handle business logic
 - Models handle data structure
 
 ### 2. **Dependency Injection**
+
 - Database instance injected into services
 - Logger injected into controllers/services
 - Configuration centralized in config files
 
 ### 3. **Error Handling**
+
 - Try-catch in controller and service layers
 - Specific error messages for different scenarios
 - HTTP status codes appropriately set
 
 ### 4. **Validation**
+
 - Request validation at controller level
 - Database-level constraints (unique emails)
 - Type safety with TypeScript
 
 ### 5. **Logging**
+
 - Winston logger for structured logging
 - Morgan for HTTP request logging
 - Consistent log format across layers
@@ -370,6 +396,7 @@ npm run db:studio       # Open Drizzle Studio
 ## 📈 Current Development Status
 
 ### ✅ Completed
+
 - Basic Express server setup
 - User registration endpoint (sign-up)
 - Password hashing with bcrypt
@@ -383,10 +410,12 @@ npm run db:studio       # Open Drizzle Studio
 - Error handling
 
 ### 🔄 Partially Implemented
+
 - Authentication routes (login, logout stubs only)
 - User validation schema
 
 ### ⏳ Not Yet Implemented
+
 - Sign-in endpoint logic
 - Sign-out endpoint logic
 - Password verification
@@ -403,23 +432,27 @@ npm run db:studio       # Open Drizzle Studio
 ## 🔌 Integration Points
 
 ### Database
+
 - **Provider:** Neon (PostgreSQL serverless)
 - **ORM:** Drizzle ORM
 - **Schema:** Defined with TypeScript types
 - **Migrations:** Drizzle Kit
 
 ### Authentication
+
 - **Token Type:** JWT
 - **Storage:** HTTP-only cookies
 - **Algorithm:** (Default JWT)
 - **Expiration:** 15 minutes
 
 ### Logging
+
 - **Provider:** Winston
 - **Transports:** Console + File
 - **Format:** Structured JSON
 
 ### External Services
+
 - None currently integrated
 
 ---
@@ -427,14 +460,17 @@ npm run db:studio       # Open Drizzle Studio
 ## 🧪 Code Quality Tools
 
 ### Linting
+
 - **ESLint** with TypeScript support
 - **eslint-config-prettier** for code style consistency
 
 ### Formatting
+
 - **Prettier** for code formatting
 - Configured in `.prettierrc`
 
 ### Type Checking
+
 - **TypeScript** with strict mode
 - Type definitions for all dependencies
 
@@ -443,19 +479,23 @@ npm run db:studio       # Open Drizzle Studio
 ## 📝 Code Conventions
 
 ### Import Aliases
+
 The project uses path aliases for cleaner imports:
+
 ```typescript
-import logger from "#config/logger"
-import { signup } from "#controllers/auth.controller"
-import { createUser } from "#service/auth.service"
+import logger from "#config/logger";
+import { signup } from "#controllers/auth.controller";
+import { createUser } from "#service/auth.service";
 ```
 
 Instead of:
+
 ```typescript
-import logger from "../../config/logger"
+import logger from "../../config/logger";
 ```
 
 ### Naming Conventions
+
 - **Files:** camelCase with clear function names
 - **Functions:** camelCase
 - **Classes/Types:** PascalCase
@@ -467,6 +507,7 @@ import logger from "../../config/logger"
 ## 🔮 Future Architecture Considerations
 
 ### Planned Expansions
+
 1. Add acquisition management features
 2. Implement middleware layer for authentication checks
 3. Add more database schemas (acquisitions, suppliers, etc.)
@@ -479,6 +520,7 @@ import logger from "../../config/logger"
 10. Implement comprehensive testing suite
 
 ### Scalability Considerations
+
 - Current: Single-tier monolithic approach
 - Future: Consider microservices if domain grows
 - Database: Neon serverless scales automatically
@@ -491,6 +533,7 @@ import logger from "../../config/logger"
 **AcquireFlow** is a well-structured TypeScript/Express REST API for acquisition management, currently focused on user authentication. The architecture follows best practices with clear layer separation, comprehensive security measures, and modern tooling. The codebase is clean, maintainable, and ready for feature expansion.
 
 **Strengths:**
+
 - Clear layered architecture
 - Type safety with TypeScript
 - Comprehensive security features
@@ -499,9 +542,9 @@ import logger from "../../config/logger"
 - Scalable foundation
 
 **Next Steps:**
+
 - Implement remaining auth endpoints
 - Add JWT middleware for protected routes
 - Expand database schema for acquisitions
 - Add comprehensive testing
 - Implement API documentation
-

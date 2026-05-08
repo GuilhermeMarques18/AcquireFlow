@@ -1,15 +1,17 @@
 import logger from "#config/logger";
 import { users } from "#models/user.model";
 import { db } from "#config/database";
-import { eq } from "drizzle-orm";
+import { eq, type InferModel } from "drizzle-orm";
 import bcrypt from "bcrypt";
+
+type PublicUser = Pick<InferModel<typeof users>, "id" | "name" | "email" | "role" | "createdAt">;
 
 export const hashPassword = async (password: string): Promise<string> => {
   try {
     return await bcrypt.hash(password, 10);
   } catch (e) {
     logger.error("Error hashing the password: ", e);
-    throw new Error("Error hashing");
+    throw new Error("Error hashing", { cause: e });
   }
 };
 
@@ -21,7 +23,7 @@ export const comparePassword = async (
     return await bcrypt.compare(providedPassword, hashedPassword);
   } catch (e) {
     logger.error("Error comparing passwords: ", e);
-    throw new Error("Error comparing passwords");
+    throw new Error("Error comparing passwords", { cause: e });
   }
 };
 
@@ -35,7 +37,7 @@ export const createUser = async ({
   email: string;
   password: string;
   role?: string;
-}): Promise<any> => {
+}): Promise<PublicUser> => {
   try {
     const existingUser = await db
       .select()
@@ -65,11 +67,11 @@ export const createUser = async ({
     return newUser[0];
   } catch (e) {
     logger.error("Error creating user: ", e);
-    throw new Error("Error creating user");
+    throw new Error("Error creating user", { cause: e });
   }
 };
 
-export const authenticateUser = async (email: string, password: string): Promise<any> => {
+export const authenticateUser = async (email: string, password: string): Promise<PublicUser> => {
   try {
     const user = await db.select().from(users).where(eq(users.email, email)).limit(1).execute();
 

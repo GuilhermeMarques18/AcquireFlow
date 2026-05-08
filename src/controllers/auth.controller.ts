@@ -6,10 +6,14 @@ import { createUser, authenticateUser } from "#service/auth.service";
 import { jwtToken } from "#utils/jwt";
 import { cookies } from "#utils/cookies";
 
+interface AuthError extends Error {
+  message: string;
+}
+
 export const signup = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ): Promise<Response | void> => {
   try {
     const validationResult = signUpSchema.safeParse(req.body);
@@ -35,10 +39,11 @@ export const signup = async (
       message: "User created",
       user: { id: user.id, name: user.name, email: user.email, role: user.role },
     });
-  } catch (e: any) {
-    logger.error("Signup error ", e);
+  } catch (e) {
+    const error = e as AuthError;
+    logger.error("Signup error ", error);
 
-    if (e.message === "User already exists") {
+    if (error.message === "User already exists") {
       return res.status(409).json({ error: "Email already exists" });
     }
 
@@ -49,7 +54,7 @@ export const signup = async (
 export const signin = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ): Promise<Response | void> => {
   try {
     const validationResult = signInSchema.safeParse(req.body);
@@ -75,14 +80,15 @@ export const signin = async (
       message: "User signed in",
       user: { id: user.id, name: user.name, email: user.email, role: user.role },
     });
-  } catch (e: any) {
-    logger.error("Sign-in error ", e);
+  } catch (e) {
+    const error = e as AuthError;
+    logger.error("Sign-in error ", error);
 
-    if (e.message === "User not found") {
+    if (error.message === "User not found") {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    if (e.message === "Invalid password") {
+    if (error.message === "Invalid password") {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
@@ -93,7 +99,7 @@ export const signin = async (
 export const signout = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ): Promise<Response | void> => {
   try {
     cookies.clear(res, "token");
@@ -101,8 +107,9 @@ export const signout = async (
     logger.info("User signed out successfully");
 
     return res.status(200).json({ message: "User signed out" });
-  } catch (e: any) {
-    logger.error("Sign-out error ", e);
+  } catch (e) {
+    const error = e as AuthError;
+    logger.error("Sign-out error ", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 };

@@ -3,11 +3,9 @@ import logger from "#config/logger";
 import { slidingWindow } from "@arcjet/node";
 import type { Request, Response, NextFunction } from "express";
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: { role?: string; id?: string };
-    }
+declare module "express" {
+  interface Request {
+    user?: { role?: string; id?: string };
   }
 }
 
