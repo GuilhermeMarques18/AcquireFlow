@@ -33,9 +33,9 @@
       "#routes/*": ["./routes/*"],
       "#service/*": ["./service/*"],
       "#utils/*": ["./utils/*"],
-      "validations/*": ["./validations/*"]
+      "#validations/*": ["./validations/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
