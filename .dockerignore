@@ -50,3 +50,4 @@ __tests__
 docs
 README.md
 DOCKER_SETUP.md
+coverage/

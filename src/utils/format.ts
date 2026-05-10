@@ -7,7 +7,7 @@ interface ValidationErrorIssue {
 
 interface FormErrors {
   issues?: ValidationErrorIssue[];
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export const formValidationError = (errors: FormErrors): string => {

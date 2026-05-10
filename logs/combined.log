@@ -1,0 +1,38 @@
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-04-21T14:22:49.360Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:14:22:49 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-04-21T14:22:49.369Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:14:22:49 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-04-21T14:22:49.950Z"}
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-04-21T23:40:53.883Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:40:53 +0000] \"GET / HTTP/1.1\" 200 37 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-04-21T23:40:53.902Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:40:55 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-04-21T23:40:55.019Z"}
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-04-21T23:45:00.668Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:45:00 +0000] \"GET / HTTP/1.1\" 200 37 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:45:00.673Z"}
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-04-21T23:45:07.133Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:45:07 +0000] \"GET / HTTP/1.1\" 200 37 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:45:07.137Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:56:22 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:56:22.421Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:56:48 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:56:48.894Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:57:20 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 200 31 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:57:20.506Z"}
+{"level":"info","message":"::1 - - [21/Apr/2026:23:57:24 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 31 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-04-21T23:57:24.813Z"}
+{"level":"info","message":"::1 - - [08/May/2026:23:39:40 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 400 94 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-05-08T23:39:40.299Z"}
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-05-09T03:37:30.875Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:37:30 +0000] \"GET / HTTP/1.1\" 200 37 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-05-09T03:37:30.896Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:37:32 +0000] \"GET /favicon.ico HTTP/1.1\" 404 150 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-05-09T03:37:32.080Z"}
+{"level":"info","message":"Hello from AcquireFlow!","service":"acquisitions-api","timestamp":"2026-05-09T03:38:15.288Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:38:15 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-05-09T03:38:15.296Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:38:21 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-05-09T03:38:21.301Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:38:36 +0000] \"GET /health HTTP/1.1\" 200 76 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36\"","service":"acquisitions-api","timestamp":"2026-05-09T03:38:36.206Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:40:58 +0000] \"POST /api/sign-up HTTP/1.1\" 404 151 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-05-09T03:40:58.511Z"}
+{"level":"info","message":"User test@gmail.com created successfully","service":"acquisitions-api","timestamp":"2026-05-09T03:42:15.189Z"}
+{"level":"info","message":"User registered successfully: test@gmail.com","service":"acquisitions-api","timestamp":"2026-05-09T03:42:15.195Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [09/May/2026:03:42:15 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 97 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-05-09T03:42:15.196Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [10/May/2026:00:52:27 +0000] \"POST /api/users HTTP/1.1\" 200 12 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-05-10T00:52:27.737Z"}
+{"level":"info","message":"Getting all users","service":"acquisitions-api","timestamp":"2026-05-10T00:52:37.214Z"}
+{"level":"info","message":"::ffff:172.18.0.1 - - [10/May/2026:00:52:37 +0000] \"GET /api/users HTTP/1.1\" 200 204 \"-\" \"HTTPie\"","service":"acquisitions-api","timestamp":"2026-05-10T00:52:37.851Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:04:52:19 +0000] \"GET /health HTTP/1.1\" 200 72 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T04:52:19.932Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:04:52:19 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T04:52:19.953Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:04:52:20 +0000] \"GET /nonexistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T04:52:20.042Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:00:35 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:00:35.913Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:00:35 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:00:35.947Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:00:36 +0000] \"GET /nonexistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:00:36.133Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:06:05 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:06:05.679Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:06:05 +0000] \"GET /api HTTP/1.1\" 200 42 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:06:05.704Z"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [10/May/2026:05:06:05 +0000] \"GET /nonexistent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisitions-api","timestamp":"2026-05-10T05:06:05.716Z"}

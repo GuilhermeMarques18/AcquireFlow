@@ -37,4 +37,9 @@ app.use(securityMiddleware);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
+
+app.use((req: Request, res: Response) => {
+  res.status(404).json({ error: "Route not found" });
+});
+
 export default app;

@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import logger from "#config/logger";
-import { signUpSchema, signInSchema } from "validations/auth.validation";
+import { signUpSchema, signInSchema } from "#validations/auth.validation";
 import { formatZodError } from "#utils/format";
 import { createUser, authenticateUser } from "#service/auth.service";
 import { jwtToken } from "#utils/jwt";

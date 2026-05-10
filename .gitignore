@@ -4,3 +4,4 @@ node_modules
 .env.production
 dist/
 logs/.neon_local/
+coverage/
