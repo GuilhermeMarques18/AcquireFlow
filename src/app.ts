@@ -8,6 +8,7 @@ import cookiesParser from "cookie-parser";
 import authRoutes from "#routes/auth.routes";
 import { uptime } from "node:process";
 import securityMiddleware from "#middleware/security.middleware";
+import usersRoutes from "#routes/users.routes";
 
 const app = express();
 
@@ -35,4 +36,5 @@ app.get("/api", (req: Request, res: Response) => {
 app.use(securityMiddleware);
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", usersRoutes);
 export default app;
