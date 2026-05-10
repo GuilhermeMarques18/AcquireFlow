@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "ignoreDeprecations": "6.0",
-    "baseUrl": "./src",
-    "rootDir": "./src",
+    "baseUrl": ".",
+    "rootDir": ".",
     "outDir": "./dist",
 
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
-    "types": ["node"],
+    "types": ["node", "jest"],
     "resolveJsonModule": true,
 
     "sourceMap": true,
@@ -26,16 +27,16 @@
     "skipLibCheck": true,
 
     "paths": {
-      "#config/*": ["./config/*"],
-      "#controllers/*": ["./controllers/*"],
-      "#middleware/*": ["./middleware/*"],
-      "#models/*": ["./models/*"],
-      "#routes/*": ["./routes/*"],
-      "#service/*": ["./service/*"],
-      "#utils/*": ["./utils/*"],
-      "#validations/*": ["./validations/*"]
+      "#config/*": ["./src/config/*"],
+      "#controllers/*": ["./src/controllers/*"],
+      "#middleware/*": ["./src/middleware/*"],
+      "#models/*": ["./src/models/*"],
+      "#routes/*": ["./src/routes/*"],
+      "#service/*": ["./src/service/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#validations/*": ["./src/validations/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "tests/**/*"],
   "exclude": ["node_modules", "dist"]
 }
